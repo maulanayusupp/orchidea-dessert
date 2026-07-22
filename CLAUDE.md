@@ -79,7 +79,8 @@ app/
     home/      Hero, Marquee, Categories, Signatures, Popular, Process, Trust, Visit
     legal/     Doc  (renders any legal page from i18n)
   pages/
-    index.vue, menu.vue, about.vue, contact.vue
+    index.vue, about.vue, contact.vue
+    menu/index.vue (filterable list), menu/[slug].vue (product detail)
     legal/privacy.vue, legal/terms.vue, legal/compliance.vue
   assets/scss/
     main.scss             # the only globally-registered stylesheet
@@ -108,7 +109,10 @@ i18n/locales/             # id.json (default), en.json
 
 - **New product:** add to `app/data/products.ts` (bilingual `name`/`desc`, `priceIDR`
   or `null`, `category`, `image`, `source`). Drop the image in
-  `public/images/products/`. No template changes needed.
+  `public/images/products/`. No template changes needed — it appears on the menu,
+  gets a `/menu/<slug>` detail page (with Product JSON-LD), and enters the sitemap
+  automatically. Keep `menu/index.vue` + `menu/[slug].vue` (never re-add `menu.vue`,
+  which would turn it into a parent route needing `<NuxtPage>`).
 - **New category:** add to `app/data/categories.ts`.
 - **New page:** create in `app/pages/`, call `useSeoMetaTags`, add nav entry in
   `layout/Header.vue` + `layout/Footer.vue`, and add `nav.*` keys to both locales.
