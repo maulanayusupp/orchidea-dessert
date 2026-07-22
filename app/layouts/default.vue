@@ -14,6 +14,7 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  overflow-x: clip; // contain decorative bleed (hero glow, marquee) at the shell
 }
 
 .app-main {

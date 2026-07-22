@@ -32,11 +32,17 @@ export function useSeoMetaTags(input: SeoInput) {
     ogType: input.type ?? 'website',
     ogSiteName: SITE.name,
     ogImage: absoluteImage,
+    ogImageSecureUrl: absoluteImage,
+    ogImageType: 'image/jpeg',
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
+    ogImageAlt: SITE.name,
     ogUrl: canonical,
     twitterCard: 'summary_large_image',
     twitterTitle: fullTitle,
     twitterDescription: input.description,
     twitterImage: absoluteImage,
+    twitterImageAlt: SITE.name,
   })
 
   useHead({

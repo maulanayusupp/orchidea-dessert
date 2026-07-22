@@ -4,10 +4,13 @@ Roadmap of next features and improvements. Keep this updated as work lands
 (rule §7 in CLAUDE.md). Checked = done.
 
 ## 🚀 Deployment / infra
-- [ ] Configure git remote & push (`git remote add origin <url>`), then `git push -u origin main`.
-- [ ] Choose host (Vercel / Netlify / Cloudflare Pages) and connect the repo.
-- [ ] Set production domain and update `SITE.url` in `app/config/site.ts`.
-- [ ] Add `@nuxtjs/sitemap` + `@nuxtjs/robots` for auto sitemap.xml / robots (currently a static robots.txt).
+- [x] Configure git remote & push (`origin` = maulanayusupp/orchidea-dessert).
+- [x] Host connected — Vercel **autodeploy on push to `main`**.
+- [x] Default site URL centralized in `app/config/site.ts`; production overridable
+      via `NUXT_PUBLIC_SITE_URL` env → `runtimeConfig.public.siteUrl`.
+- [x] Dynamic `robots.txt` + `sitemap.xml` server routes (use runtime siteUrl).
+- [ ] Set `NUXT_PUBLIC_SITE_URL` in Vercel when the custom production domain is live.
+- [ ] (Optional) Swap the hand-rolled sitemap for `@nuxtjs/sitemap` if it grows.
 - [ ] Add analytics (privacy-friendly, e.g. Plausible) — update Privacy page + cookie note.
 
 ## 🖼️ Content & brand

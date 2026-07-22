@@ -114,8 +114,24 @@ i18n/locales/             # id.json (default), en.json
   `layout/Header.vue` + `layout/Footer.vue`, and add `nav.*` keys to both locales.
 - **New string:** add the key to `id.json` **and** `en.json`.
 
-## 8. Git workflow
+## 8. URLs, share previews & deploy
 
-Small, focused commits; commit **and push** after each change. Conventional-ish
-messages (`feat:`, `fix:`, `content:`, `chore:`). Push remote must be configured
-(`git remote add origin …`) — see TODO.md “Deployment”.
+- **One source of truth for the site URL:** `SITE.url` in `app/config/site.ts`,
+  exposed as `runtimeConfig.public.siteUrl` and overridable in production via the
+  `NUXT_PUBLIC_SITE_URL` env var. Nothing else hardcodes the domain — `robots.txt`
+  and `sitemap.xml` are dynamic server routes (`server/routes/`) that read it, and
+  `useSeoMetaTags` builds canonical/OG URLs from it.
+- **Share preview (WhatsApp/IG/Twitter):** `useSeoMetaTags` emits absolute OG +
+  Twitter tags incl. image dimensions/type. The card is `public/og-image.jpg`
+  (1200×630). To regenerate: edit `scratchpad og.html`-style template, screenshot
+  at 1200×630 with headless Chrome, then `magick … -quality 86 og-image.jpg`
+  (this box's ImageMagick lacks Freetype, so text must be rendered by Chrome).
+- **No horizontal overflow:** decorative bleed (hero glow, marquee) is contained
+  by `overflow-x: clip` on `html`, `body` and `.app-shell` — keep those.
+
+## 9. Git workflow & deploy
+
+Small, focused commits; commit **and push** after each change (Conventional-ish:
+`feat:`, `fix:`, `content:`, `chore:`). Remote `origin` =
+`git@github.com:maulanayusupp/orchidea-dessert.git`, branch `main`, **Vercel
+autodeploys on push**.

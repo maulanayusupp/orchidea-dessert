@@ -16,9 +16,13 @@ const waUrl = computed(() =>
   buildWhatsAppOrderUrl(orderMessage()[locale.value as 'id' | 'en']),
 )
 
-// Solid header once the hero is scrolled past.
+// The transparent (white-text) header only reads well over the dark home hero.
+// Everywhere else the page starts on a light background, so the header must be
+// solid (dark text) from the top. It also turns solid once the hero is scrolled.
+const isHome = computed(() => route.path === localePath('/'))
 const { y } = useWindowScroll()
 const scrolled = computed(() => y.value > 24)
+const solid = computed(() => scrolled.value || open.value || !isHome.value)
 
 // Mobile drawer
 const open = ref(false)
@@ -33,10 +37,10 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <header class="header" :class="{ 'is-solid': scrolled || open }">
+  <header class="header" :class="{ 'is-solid': solid }">
     <div class="header__bar container">
       <NuxtLink :to="localePath('/')" class="header__brand" aria-label="Orchidea Dessert — home">
-        <BrandLogo :tone="scrolled || open ? 'gold' : 'light'" />
+        <BrandLogo :tone="solid ? 'gold' : 'light'" />
       </NuxtLink>
 
       <nav class="header__nav" :aria-label="t('nav.primary')">
