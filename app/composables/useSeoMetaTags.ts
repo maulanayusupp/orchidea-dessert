@@ -5,6 +5,9 @@ interface SeoInput {
   description: string
   /** Absolute or root-relative OG image path. Defaults to the brand card. */
   image?: string
+  /** Only known for the default 1200×630 brand card; omit for arbitrary images. */
+  imageWidth?: number
+  imageHeight?: number
   type?: 'website' | 'article' | 'product'
 }
 
@@ -18,8 +21,12 @@ export function useSeoMetaTags(input: SeoInput) {
   const config = useRuntimeConfig()
   const base = (config.public.siteUrl as string) || SITE.url
 
+  const usingDefaultImage = !input.image
   const image = input.image ?? '/og-image.jpg'
   const absoluteImage = image.startsWith('http') ? image : `${base}${image}`
+  // Dimensions are only reliable for the default brand card (1200×630).
+  const imgW = usingDefaultImage ? 1200 : input.imageWidth
+  const imgH = usingDefaultImage ? 630 : input.imageHeight
   const canonical = `${base}${route.path}`
   const fullTitle =
     input.title === SITE.name ? SITE.name : `${input.title} · ${SITE.name}`
@@ -34,9 +41,9 @@ export function useSeoMetaTags(input: SeoInput) {
     ogImage: absoluteImage,
     ogImageSecureUrl: absoluteImage,
     ogImageType: 'image/jpeg',
-    ogImageWidth: 1200,
-    ogImageHeight: 630,
-    ogImageAlt: SITE.name,
+    ogImageWidth: imgW,
+    ogImageHeight: imgH,
+    ogImageAlt: input.title,
     ogUrl: canonical,
     twitterCard: 'summary_large_image',
     twitterTitle: fullTitle,

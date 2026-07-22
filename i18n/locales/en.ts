@@ -28,7 +28,20 @@ export default {
     "signature": "Signature",
     "from": "From",
     "preorder": "Pre-order (H-1)",
-    "priceNote": "Prices may change. Please confirm availability and the latest price on WhatsApp."
+    "priceNote": "Prices may change. Please confirm availability and the latest price on WhatsApp.",
+    "detail": {
+      "back": "Back to menu",
+      "about": "About this treat",
+      "variants": "Available variants",
+      "allergenTitle": "Allergen information",
+      "allergen": "May contain gluten, eggs, dairy and nuts. Please tell us about any allergies.",
+      "leadTitle": "Made fresh (H-1)",
+      "leadDesc": "Every order is baked just for you. Kindly order at least one day ahead.",
+      "madeTitle": "Made in Bandung",
+      "madeDesc": "By Chef R. Gilang Wardhana with selected ingredients.",
+      "orderCta": "Order this on WhatsApp",
+      "related": "You may also like"
+    }
   },
   "home": {
     "hero": {

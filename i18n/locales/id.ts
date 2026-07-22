@@ -28,7 +28,20 @@ export default {
     "signature": "Signature",
     "from": "Mulai",
     "preorder": "Pre-order (H-1)",
-    "priceNote": "Harga dapat berubah. Konfirmasi ketersediaan & harga terbaru via WhatsApp."
+    "priceNote": "Harga dapat berubah. Konfirmasi ketersediaan & harga terbaru via WhatsApp.",
+    "detail": {
+      "back": "Kembali ke menu",
+      "about": "Tentang menu ini",
+      "variants": "Varian tersedia",
+      "allergenTitle": "Informasi alergen",
+      "allergen": "Dapat mengandung gluten, telur, produk susu, dan kacang. Beri tahu kami jika ada alergi.",
+      "leadTitle": "Dibuat segar (H-1)",
+      "leadDesc": "Setiap pesanan dipanggang khusus untukmu. Mohon pesan minimal satu hari sebelumnya.",
+      "madeTitle": "Dibuat di Bandung",
+      "madeDesc": "Oleh Chef R. Gilang Wardhana dengan bahan pilihan.",
+      "orderCta": "Pesan ini via WhatsApp",
+      "related": "Mungkin kamu suka juga"
+    }
   },
   "home": {
     "hero": {

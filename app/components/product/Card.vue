@@ -6,10 +6,11 @@ import { buildWhatsAppOrderUrl, orderMessage } from '~/utils/whatsapp'
 const props = defineProps<{ product: Product }>()
 
 const { t, locale } = useI18n()
-const { name, desc, tt } = useCatalog()
-const { categoryBySlug } = useCatalog()
+const localePath = useLocalePath()
+const { name, desc, tt, categoryBySlug } = useCatalog()
 
 const category = computed(() => categoryBySlug(props.product.category))
+const detailPath = computed(() => localePath(`/menu/${props.product.slug}`))
 const waUrl = computed(() =>
   buildWhatsAppOrderUrl(orderMessage(name(props.product))[locale.value as 'id' | 'en']),
 )
@@ -17,7 +18,7 @@ const waUrl = computed(() =>
 
 <template>
   <article class="card">
-    <div class="card__media">
+    <NuxtLink :to="detailPath" class="card__media" :aria-label="name(product)">
       <img
         :src="product.image"
         :alt="name(product)"
@@ -30,10 +31,12 @@ const waUrl = computed(() =>
         <UiIcon name="sparkle" :size="13" /> {{ t('product.signature') }}
       </span>
       <span v-if="category" class="card__cat">{{ tt(category.name) }}</span>
-    </div>
+    </NuxtLink>
 
     <div class="card__body">
-      <h3 class="card__name">{{ name(product) }}</h3>
+      <h3 class="card__name">
+        <NuxtLink :to="detailPath" class="card__name-link">{{ name(product) }}</NuxtLink>
+      </h3>
       <p class="card__desc">{{ desc(product) }}</p>
 
       <ul v-if="product.variants?.length" class="card__variants" role="list">
@@ -88,6 +91,7 @@ const waUrl = computed(() =>
   }
 
   &__media {
+    display: block;
     position: relative;
     aspect-ratio: 4 / 3;
     overflow: hidden;
@@ -139,6 +143,11 @@ const waUrl = computed(() =>
 
   &__name {
     font-size: fluid(19, 23);
+  }
+
+  &__name-link {
+    transition: color $dur-fast var(--ease-out);
+    &:hover { color: var(--c-gold-deep); }
   }
 
   &__desc {

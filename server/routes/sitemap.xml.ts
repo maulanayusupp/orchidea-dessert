@@ -3,6 +3,8 @@
  * EN is prefixed with /en) using the runtime site URL so it stays correct when
  * the production domain is set via NUXT_PUBLIC_SITE_URL.
  */
+import { products } from '~/data/products'
+
 const PATHS = [
   '/',
   '/menu',
@@ -11,6 +13,8 @@ const PATHS = [
   '/legal/privacy',
   '/legal/terms',
   '/legal/compliance',
+  // Product detail pages (evidence-based catalog).
+  ...products.map((p) => `/menu/${p.slug}`),
 ]
 
 export default defineEventHandler((event) => {
