@@ -1,3 +1,5 @@
+@use '../abstracts' as *;
+
 // Low-level utility classes (used sparingly — components carry most styling).
 .u-text-center { text-align: center; }
 .u-text-gold { color: var(--c-gold-deep); }

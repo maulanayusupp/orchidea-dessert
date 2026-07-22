@@ -58,8 +58,8 @@ export default defineNuxtConfig({
       alwaysRedirect: false,
     },
     locales: [
-      { code: 'id', language: 'id-ID', name: 'Indonesia', file: 'id.json' },
-      { code: 'en', language: 'en-US', name: 'English', file: 'en.json' },
+      { code: 'id', language: 'id-ID', name: 'Indonesia', file: 'id.ts' },
+      { code: 'en', language: 'en-US', name: 'English', file: 'en.ts' },
     ],
     // v9 resolves langDir relative to <rootDir>/i18n
     langDir: 'locales',

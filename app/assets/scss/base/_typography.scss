@@ -1,3 +1,5 @@
+@use '../abstracts' as *;
+
 body {
   font-family: var(--font-body);
   font-weight: $fw-regular;

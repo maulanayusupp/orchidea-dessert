@@ -1,0 +1,14 @@
+{
+  "name": "Orchidea Dessert",
+  "short_name": "Orchidea",
+  "description": "Artisan pastry, bakery & viennoiserie by Chef R. Gilang Wardhana, Bandung.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8f1e3",
+  "theme_color": "#a67c2e",
+  "icons": [
+    { "src": "/favicon.svg", "type": "image/svg+xml", "sizes": "any" },
+    { "src": "/icon-192.png", "type": "image/png", "sizes": "192x192" },
+    { "src": "/icon-512.png", "type": "image/png", "sizes": "512x512", "purpose": "any maskable" }
+  ]
+}

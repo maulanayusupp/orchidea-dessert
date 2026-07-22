@@ -1,3 +1,5 @@
+@use '../abstracts' as *;
+
 // CSS custom properties — the runtime theme. SCSS tokens feed these so both
 // worlds stay in sync. Components reference var(--c-*) for anything themeable.
 :root {

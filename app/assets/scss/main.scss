@@ -1,0 +1,11 @@
+// =============================================================================
+// GLOBAL STYLESHEET — the only file registered in nuxt.config `css`.
+// Order matters: root vars → reset → typography → layout → utilities → shared
+// component classes. Design tokens are auto-injected via `additionalData`.
+// =============================================================================
+@use 'base/root';
+@use 'base/reset';
+@use 'base/typography';
+@use 'base/layout';
+@use 'base/utilities';
+@use 'components/button';
