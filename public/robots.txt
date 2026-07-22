@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://orchideadessert.id/sitemap.xml
+Sitemap: https://orchidea-dessert.vercel.app/sitemap.xml

@@ -70,6 +70,7 @@ const waUrl = computed(() =>
 .card {
   display: flex;
   flex-direction: column;
+  height: 100%; // fill the (stretched) grid cell so cards in a row match height
   background: var(--c-surface);
   border-radius: var(--radius-lg);
   overflow: hidden;

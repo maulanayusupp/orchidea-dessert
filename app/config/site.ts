@@ -18,8 +18,9 @@ export const SITE = {
   name: 'Orchidea Dessert',
   legalName: 'Orchidea Dessert by Chef R. Gilang Wardhana',
   founder: 'Chef R. Gilang Wardhana Wantika',
-  // Deployment URL — update when the production domain is live.
-  url: 'https://orchideadessert.id',
+  // Default deployment URL. Overridden in production via the
+  // NUXT_PUBLIC_SITE_URL env var (maps to runtimeConfig.public.siteUrl).
+  url: 'https://orchidea-dessert.vercel.app',
   // Order lead time — the business takes orders one day in advance ("Order H-1").
   orderLeadTime: 'H-1',
   rating: { value: 5.0, count: 200, source: 'Google' },
