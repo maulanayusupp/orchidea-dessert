@@ -1,9 +1,12 @@
 <script setup lang="ts">
-import { formatIDR } from '~/utils/format'
+import { formatIDR, priceFrom } from '~/utils/format'
 import { buildWhatsAppOrderUrl, orderMessage } from '~/utils/whatsapp'
+import type { ProductSize } from '~/types/catalog'
 
 const route = useRoute()
 const { t, locale } = useI18n()
+
+const sizeLabel = (s: ProductSize) => `${t(`product.size.${s.shape}`)} ${s.dim}`
 const localePath = useLocalePath()
 const { products, productBySlug, categoryBySlug, name, desc, tt } = useCatalog()
 
@@ -95,11 +98,23 @@ useProductJsonLd(product)
           </div>
 
           <div class="pd__price">
-            <template v-if="product.priceIDR !== null">
-              <span class="pd__price-from">{{ t('product.from') }}</span>
-              <span class="pd__price-amount">{{ formatIDR(product.priceIDR) }}</span>
+            <template v-if="priceFrom(product) !== null">
+              <span v-if="product.sizes?.length" class="pd__price-from">{{ t('product.from') }}</span>
+              <span class="pd__price-amount">{{ formatIDR(priceFrom(product)!) }}</span>
             </template>
             <span v-else class="pd__price-po">{{ t('product.preorder') }}</span>
+          </div>
+
+          <div v-if="product.sizes?.length" class="pd__sizes">
+            <span class="pd__sizes-label">{{ t('product.detail.sizes') }}</span>
+            <ul role="list">
+              <li v-for="(s, i) in product.sizes" :key="i">
+                <span class="pd__sizes-name">{{ sizeLabel(s) }}</span>
+                <span class="pd__sizes-price">
+                  {{ s.priceIDR !== null ? formatIDR(s.priceIDR) : '—' }}
+                </span>
+              </li>
+            </ul>
           </div>
 
           <div class="pd__actions">
@@ -264,6 +279,41 @@ useProductJsonLd(product)
     font-weight: $fw-medium;
     color: var(--c-teal);
   }
+}
+
+.pd__sizes {
+  margin-top: fluid(16, 22);
+
+  &-label {
+    display: block;
+    font-size: $fs-xs;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--c-text-muted);
+    margin-bottom: $space-2;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    max-width: 340px;
+  }
+
+  li {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: $space-4;
+    padding: 0.5em 0;
+    border-bottom: 1px dashed var(--c-border);
+  }
+
+  &-name { color: var(--c-ink-soft); }
+  &-price { font-weight: $fw-semibold; color: var(--c-ink); font-family: $font-display; font-size: 1.1em; }
 }
 
 .pd__actions {

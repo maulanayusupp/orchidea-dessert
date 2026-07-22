@@ -1,53 +1,79 @@
 import type { Category } from '~/types/catalog'
 
 /**
- * Product categories. Derived from Orchidea Dessert's own Instagram highlights
- * (Custom, Cookies, Birthday Cake, Croissant, Set Menu, Cromboloni) and the IG
- * bio (Pastry · Bakery · Viennoiserie · Frozen Food). No invented categories.
+ * Product categories — mirror the sections of Orchidea Dessert's official
+ * "Catalog Orchidea 2026" (the authoritative source for the full menu & prices).
  */
 export const categories: Category[] = [
   {
     slug: 'cakes',
-    name: { id: 'Kue & Custom', en: 'Cakes & Custom' },
+    name: { id: 'Kue Signature', en: 'Signature Cakes' },
     tagline: {
-      id: 'Kue ulang tahun & custom, mille crepes, tiramisu, red velvet.',
-      en: 'Birthday & custom cakes, mille crepes, tiramisu, red velvet.',
+      id: 'Kue premium dalam ukuran persegi & bulat — avocado, blackforest, tiramisu, cheesecake, dan lainnya.',
+      en: 'Premium cakes in square & round sizes — avocado, blackforest, tiramisu, cheesecake and more.',
     },
     icon: 'cake',
   },
   {
-    slug: 'pastry',
-    name: { id: 'Pastry & Viennoiserie', en: 'Pastry & Viennoiserie' },
+    slug: 'crepes',
+    name: { id: 'Mille Crepes', en: 'Mille Crepes' },
     tagline: {
-      id: 'Croissant, cromboloni, dan pastry berlapis ala Prancis.',
-      en: 'Croissants, cromboloni and laminated French-style pastries.',
+      id: 'Puluhan lapis crepe tipis — durian, thai tea, tiramisu, vanilla, nutella.',
+      en: 'Dozens of thin crepe layers — durian, thai tea, tiramisu, vanilla, nutella.',
+    },
+    icon: 'cake',
+  },
+  {
+    slug: 'rollcake',
+    name: { id: 'Roll Cake', en: 'Roll Cake' },
+    tagline: {
+      id: 'Korean roll cake yang lembut — strawberry, coklat, keju, klepon.',
+      en: 'Soft Korean roll cakes — strawberry, chocolate, cheese, klepon.',
+    },
+    icon: 'cake',
+  },
+  {
+    slug: 'viennoiserie',
+    name: { id: 'Viennoiserie', en: 'Viennoiserie' },
+    tagline: {
+      id: 'Croissant berlapis & Roti Maung dengan aneka isian.',
+      en: 'Laminated croissants & Roti Maung with a variety of fillings.',
     },
     icon: 'croissant',
   },
   {
-    slug: 'bakery',
-    name: { id: 'Bakery & Roti', en: 'Bakery & Bread' },
+    slug: 'sweets',
+    name: { id: 'Sweet', en: 'Sweet Treats' },
     tagline: {
-      id: 'Roti artisan, termasuk Roti Maung yang viral.',
-      en: 'Artisan breads, including the viral Roti Maung.',
+      id: 'Brownies, emental cheese, strawberry crumble, dan camilan manis.',
+      en: 'Brownies, emental cheese, strawberry crumble and sweet snacks.',
+    },
+    icon: 'cookie',
+  },
+  {
+    slug: 'savory',
+    name: { id: 'Savory & Donut', en: 'Savory & Donuts' },
+    tagline: {
+      id: 'Picnic roll gurih dan donut yang mengenyangkan.',
+      en: 'Savoury picnic rolls and satisfying donuts.',
     },
     icon: 'bread',
   },
   {
     slug: 'cookies',
-    name: { id: 'Cookies Premium', en: 'Premium Cookies' },
+    name: { id: 'Cookies', en: 'Cookies' },
     tagline: {
-      id: 'Kaastengels, nastar, putri salju, sagu keju, lidah kucing.',
-      en: 'Kaastengels, nastar, snow-white cookies, cheese sagu, lidah kucing.',
+      id: 'Kaastengels, nastar, putri salju, dan cookies premium lainnya.',
+      en: 'Kaastengels, nastar, snow-white and other premium cookies.',
     },
     icon: 'cookie',
   },
   {
-    slug: 'hampers',
-    name: { id: 'Hampers & Gift', en: 'Hampers & Gifts' },
+    slug: 'bundling',
+    name: { id: 'Paket & Kopi', en: 'Bundles & Coffee' },
     tagline: {
-      id: 'Paket hantaran elegan untuk Lebaran & momen spesial.',
-      en: 'Elegant gift boxes for Eid and special moments.',
+      id: 'Paket hemat croissant, donut, dan iced coffee.',
+      en: 'Value bundles of croissants, donuts and iced coffee.',
     },
     icon: 'gift',
   },

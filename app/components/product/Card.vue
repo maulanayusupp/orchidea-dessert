@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import type { Product } from '~/types/catalog'
-import { formatIDR } from '~/utils/format'
+import { formatIDR, priceFrom } from '~/utils/format'
 import { buildWhatsAppOrderUrl, orderMessage } from '~/utils/whatsapp'
 
 const props = defineProps<{ product: Product }>()
+
+const price = computed(() => priceFrom(props.product))
 
 const { t, locale } = useI18n()
 const localePath = useLocalePath()
@@ -48,9 +50,9 @@ const waUrl = computed(() =>
 
       <div class="card__foot">
         <div class="card__price">
-          <template v-if="product.priceIDR !== null">
+          <template v-if="price !== null">
             <span class="card__from">{{ t('product.from') }}</span>
-            <span class="card__amount">{{ formatIDR(product.priceIDR) }}</span>
+            <span class="card__amount">{{ formatIDR(price) }}</span>
           </template>
           <span v-else class="card__po">{{ t('product.preorder') }}</span>
         </div>

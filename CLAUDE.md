@@ -97,13 +97,17 @@ i18n/locales/             # id.json (default), en.json
   (primary), forest/sage green (`--c-green` / `--c-sage`), cream/ivory surfaces,
   teal accent, espresso ink. Tokens in `abstracts/_variables.scss` + `base/_root.scss`.
 - **Fonts:** Cormorant Garamond (display), Jost (body) — loaded via Google Fonts.
-- **Verified facts** (sources): IG [@orchideadessert], TikTok [@orchidea_dessert],
-  Linktree `linktr.ee/orchidea.dessert`, Shopee catalogue, Google Business Profile
-  (“Cake shop”, 5.0★/200 reviews, address & phone in `config/site.ts`, opens 10:00).
-- **Published prices (Shopee):** Roll Cake Rp100.000, Mille Crepes Rp350.000,
-  Avocado Chocolate Rp250.000, Chocolate Brownie Rp75.000. All other items: PO.
-- **Images:** currently free-licence (Unsplash) placeholders that match each item
-  type — replace with the owner's real photography when supplied (see TODO.md).
+- **Primary source — "Catalog Orchidea 2026" (PDF):** the full menu (~71 items)
+  and prices in `app/data/products.ts` are transcribed from it (`source: 'catalog'`).
+  Cakes list only the sizes the catalog offers; the card shows the lowest price.
+- **Other sources:** IG [@orchideadessert], TikTok [@orchidea_dessert], Linktree,
+  Google Business Profile (“Cake shop”, 5.0★/200 reviews, opens 10:00). The catalog
+  is **halal** (stated on it) — reflected on the compliance page.
+- **Contact discrepancy (confirm before launch):** the catalog prints WhatsApp
+  **0819-9308-8884** (used site-wide); Google lists **0822-1690-2617**
+  (`CONTACT.phoneAltDisplay`). Ask the owner which is primary.
+- **Images:** free-licence (Unsplash) placeholders matched by item type and reused
+  across similar items — replace with the owner's real photography (see TODO.md).
 
 ## 7. Adding content
 

@@ -28,10 +28,13 @@ export const SITE = {
 } as const
 
 export const CONTACT = {
-  phoneDisplay: '0822-1690-2617',
-  phoneE164: '+6282216902617',
-  // wa.me deep link from their Linktree "Order by WhatsApp".
-  whatsapp: 'https://wa.me/6282216902617',
+  // Official contact printed on the "Catalog Orchidea 2026" (WA 0819-9308-8884).
+  // Note: their Google Business Profile lists 0822-1690-2617 — kept here for
+  // reference; confirm with the owner which is primary before launch.
+  phoneDisplay: '0819-9308-8884',
+  phoneE164: '+6281993088884',
+  phoneAltDisplay: '0822-1690-2617', // Google Business Profile
+  whatsapp: 'https://wa.me/6281993088884',
   address: {
     line: 'Akinata 21C, Ciparay Hilir, Cangkuang Kulon',
     district: 'Kec. Dayeuhkolot',

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { formatIDR } from '~/utils/format'
+import { formatIDR, priceFrom } from '~/utils/format'
 import { buildWhatsAppOrderUrl, orderMessage } from '~/utils/whatsapp'
 
 const { t, locale } = useI18n()
@@ -38,8 +38,8 @@ const waFor = (n: string) =>
               <li v-for="v in p.variants" :key="v">{{ v }}</li>
             </ul>
             <div class="feat__foot">
-              <span v-if="p.priceIDR !== null" class="feat__price">
-                {{ t('product.from') }} <strong>{{ formatIDR(p.priceIDR) }}</strong>
+              <span v-if="priceFrom(p) !== null" class="feat__price">
+                {{ t('product.from') }} <strong>{{ formatIDR(priceFrom(p)!) }}</strong>
               </span>
               <span v-else class="feat__po">{{ t('product.preorder') }}</span>
               <UiButton :href="waFor(name(p))" external variant="dark" size="sm">

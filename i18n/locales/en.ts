@@ -40,7 +40,14 @@ export default {
       "madeTitle": "Made in Bandung",
       "madeDesc": "By Chef R. Gilang Wardhana with selected ingredients.",
       "orderCta": "Order this on WhatsApp",
-      "related": "You may also like"
+      "related": "You may also like",
+      "sizes": "Sizes & prices"
+    },
+    "size": {
+      "square": "Square",
+      "round": "Round",
+      "foilSquare": "Foil square",
+      "foilRound": "Foil round"
     }
   },
   "home": {
@@ -103,7 +110,7 @@ export default {
   "menu": {
     "eyebrow": "Catalogue",
     "title": "Orchidea Dessert menu",
-    "intro": "Pastry, bakery, viennoiserie, cookies and hampers. Listed prices come from the official catalogue; other items are available to pre-order.",
+    "intro": "The complete Orchidea 2026 catalogue — signature cakes, mille crepes, roll cakes, viennoiserie, sweets, savoury, cookies and bundles. Cakes come in several sizes; prices per the official catalogue.",
     "all": "All",
     "empty": "No items in this category yet.",
     "priceDisclaimer": "Prices may change at any time. Please confirm availability and the latest price on WhatsApp."
@@ -188,7 +195,7 @@ export default {
       "title": "Compliance & Legal Information",
       "intro": "A summary of our commitments to compliance, food safety and accessibility.",
       "sections": [
-        { "heading": "Food safety", "body": ["Products are prepared following good hygiene and food-handling practices. Allergen information is available on request."] },
+        { "heading": "Halal & food safety", "body": ["All the ingredients we use are halal, and we are committed to always complying with halal regulations in making your cakes and food.", "Products are prepared following good hygiene and food-handling practices. Allergen information is available on request."] },
         { "heading": "Information accuracy", "body": ["All business information on this site (address, contact, rating, specific prices) is sourced from Orchidea Dessert's official channels and Google Business Profile. We do not display unverified data."] },
         { "heading": "Intellectual property", "body": ["The brand name, logo and content belong to Orchidea Dessert. Product photos currently use free-licence images as a placeholder until replaced with official photography."] },
         { "heading": "Accessibility", "body": ["We aim to follow good web accessibility practices (colour contrast, keyboard navigation, alternative text). Feedback is always welcome."] },

@@ -40,7 +40,14 @@ export default {
       "madeTitle": "Dibuat di Bandung",
       "madeDesc": "Oleh Chef R. Gilang Wardhana dengan bahan pilihan.",
       "orderCta": "Pesan ini via WhatsApp",
-      "related": "Mungkin kamu suka juga"
+      "related": "Mungkin kamu suka juga",
+      "sizes": "Ukuran & harga"
+    },
+    "size": {
+      "square": "Persegi",
+      "round": "Bulat",
+      "foilSquare": "Loyang persegi",
+      "foilRound": "Loyang bulat"
     }
   },
   "home": {
@@ -103,7 +110,7 @@ export default {
   "menu": {
     "eyebrow": "Katalog",
     "title": "Menu Orchidea Dessert",
-    "intro": "Pastry, bakery, viennoiserie, cookies, dan hampers. Harga yang tercantum bersumber dari katalog resmi; item lain tersedia melalui pre-order.",
+    "intro": "Katalog lengkap Orchidea 2026 — kue signature, mille crepes, roll cake, viennoiserie, sweet, savory, cookies, hingga paket. Kue tersedia dalam beberapa ukuran; harga sesuai katalog resmi.",
     "all": "Semua",
     "empty": "Belum ada item pada kategori ini.",
     "priceDisclaimer": "Harga dapat berubah sewaktu-waktu. Silakan konfirmasi ketersediaan dan harga terbaru melalui WhatsApp."
@@ -188,7 +195,7 @@ export default {
       "title": "Kepatuhan & Informasi Legal",
       "intro": "Ringkasan komitmen kepatuhan, keamanan pangan, dan aksesibilitas kami.",
       "sections": [
-        { "heading": "Keamanan pangan", "body": ["Produk disiapkan mengikuti praktik kebersihan dan penanganan pangan yang baik. Informasi alergen tersedia atas permintaan."] },
+        { "heading": "Halal & keamanan pangan", "body": ["Seluruh bahan yang kami gunakan adalah bahan halal dan kami berkomitmen untuk selalu mematuhi ketentuan halal dalam membuat kue dan makanan Anda.", "Produk disiapkan mengikuti praktik kebersihan dan penanganan pangan yang baik. Informasi alergen tersedia atas permintaan."] },
         { "heading": "Keaslian informasi", "body": ["Seluruh informasi bisnis di situs ini (alamat, kontak, rating, harga tertentu) bersumber dari kanal resmi Orchidea Dessert dan profil Google Business. Kami tidak menampilkan data yang tidak terverifikasi."] },
         { "heading": "Hak kekayaan intelektual", "body": ["Nama, logo, dan konten merek adalah milik Orchidea Dessert. Foto produk saat ini menggunakan gambar berlisensi bebas sebagai sementara hingga digantikan foto resmi."] },
         { "heading": "Aksesibilitas", "body": ["Kami berupaya memenuhi praktik aksesibilitas web yang baik (kontras warna, navigasi keyboard, teks alternatif). Masukan sangat kami hargai."] },

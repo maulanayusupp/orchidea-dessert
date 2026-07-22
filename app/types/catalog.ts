@@ -15,13 +15,22 @@ export interface Category {
   icon: string
 }
 
+/** A cake size option. Shape word is localized in the UI; `dim` is universal. */
+export interface ProductSize {
+  shape: 'square' | 'round' | 'foilSquare' | 'foilRound'
+  dim: string // e.g. "20×10 cm"
+  priceIDR: number | null // null = not available in this size
+}
+
 export interface Product {
   slug: string
   category: string // Category.slug
   name: Bilingual
   desc: Bilingual
-  /** Price in IDR. `null` when the business only quotes on order (PO / H-1). */
+  /** Single price in IDR for items sold one way. `null` = quote on order (PO). */
   priceIDR: number | null
+  /** For cakes sold in multiple sizes; the card shows the lowest available price. */
+  sizes?: ProductSize[]
   image: string
   /** Optional short list of variants shown as chips. */
   variants?: string[]
@@ -29,7 +38,7 @@ export interface Product {
   popular?: boolean
   signature?: boolean
   /** Evidence provenance so we never present assumptions as facts. */
-  source: 'shopee' | 'instagram' | 'google'
+  source: 'catalog' | 'shopee' | 'instagram' | 'google'
 }
 
 export type { LocaleCode }

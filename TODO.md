@@ -17,8 +17,10 @@ Roadmap of next features and improvements. Keep this updated as work lands
 - [ ] Replace free-licence placeholder photos in `public/images/**` with Orchidea's
       real product photography (compliance page already notes this).
 - [ ] Get the official logo file from the owner; swap `BrandLogo.vue` / favicon if needed.
-- [ ] Confirm full, current price list and opening hours directly with the owner
-      (only Shopee-published prices are shown today; the rest are pre-order).
+- [x] Full menu & prices imported from the official "Catalog Orchidea 2026" (~71 items).
+- [ ] Confirm the primary contact number with the owner: catalog WA 0819-9308-8884
+      vs Google 0822-1690-2617 (site currently uses the catalog number).
+- [ ] Confirm opening hours directly with the owner (Google says opens 10:00).
 - [ ] Add real customer testimonials (with permission) — do NOT fabricate.
 - [ ] Product detail pages (`/menu/[slug]`) with gallery, allergens, sizes.
 
