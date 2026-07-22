@@ -4,11 +4,13 @@ import type { Product, ProductSize } from '~/types/catalog'
  * FULL MENU — transcribed from Orchidea Dessert's official "Catalog Orchidea
  * 2026" (source of truth for items & prices; `source: 'catalog'`).
  *
- * Sized cakes list only the sizes the catalog actually offers; the card shows
- * the lowest available price ("from"), the detail page lists every size.
- * Single-price items use `priceIDR`. Photos are free-licence (Unsplash)
- * stand-ins matched by type — each distinct product has its own image; only
- * flavour-variants of the same item reuse one. Replace with real photos later.
+ * Sized cakes list only the sizes the catalog offers; the card shows the lowest
+ * "from" price, the detail page lists every size. Single-price items use
+ * `priceIDR`. Photos are free-licence (Unsplash) stand-ins matched by type —
+ * every distinct product has its own image; only natural twins (croissant
+ * flavours, cookie tins, the two donuts) reuse one, and never side-by-side.
+ * Replace with the owner's real photos by dropping same-named files in
+ * public/images/products/.
  */
 
 const sizes3 = (sq1: number, sq2: number, rnd: number): ProductSize[] => [
@@ -91,7 +93,7 @@ export const products: Product[] = [
       { shape: 'foilSquare', dim: '20×30 cm', priceIDR: 550000 },
       { shape: 'foilRound', dim: '22 cm', priceIDR: 375000 },
     ],
-    image: '/images/products/dessert-jar.jpg',
+    image: '/images/products/chocolate-bars.jpg',
     source: 'catalog',
   },
   {
@@ -121,7 +123,7 @@ export const products: Product[] = [
     desc: { id: 'Perpaduan lembut krim dan stroberi segar.', en: 'A gentle symphony of cream and fresh strawberries.' },
     priceIDR: null,
     sizes: sizes3(275000, 450000, 435000),
-    image: '/images/products/raspberry-cake.jpg',
+    image: '/images/products/strawberry-slice.jpg',
     signature: true,
     source: 'catalog',
   },
@@ -163,7 +165,7 @@ export const products: Product[] = [
     desc: { id: 'Basque cheesecake dengan blueberry.', en: 'Basque burnt cheesecake with blueberry.' },
     priceIDR: null,
     sizes: sizes3(250000, 375000, 350000),
-    image: '/images/products/berry-cake.jpg',
+    image: '/images/products/raspberry-cake.jpg',
     source: 'catalog',
   },
   {
@@ -183,7 +185,7 @@ export const products: Product[] = [
     desc: { id: 'Cheesecake lembut — stroberi, blueberry, atau cokelat.', en: 'Soft cheesecake — strawberry, blueberry or chocolate.' },
     priceIDR: null,
     sizes: sizes3(250000, 375000, 350000),
-    image: '/images/products/cheesecake.jpg',
+    image: '/images/products/naked-cake.jpg',
     variants: ['Strawberry', 'Blueberry', 'Chocolate'],
     source: 'catalog',
   },
@@ -224,7 +226,7 @@ export const products: Product[] = [
     desc: { id: 'Cheesecake ringan seperti awan.', en: 'Light, cloud-like cheesecake.' },
     priceIDR: null,
     sizes: round('20 cm', 450000),
-    image: '/images/products/cheesecake.jpg',
+    image: '/images/products/layered-cake.jpg',
     source: 'catalog',
   },
   {
@@ -286,7 +288,7 @@ export const products: Product[] = [
     desc: { id: 'Crepe berlapis dengan nutella.', en: 'Layered crepes with nutella.' },
     priceIDR: null,
     sizes: round('20 cm', 375000),
-    image: '/images/products/mille-crepes.jpg',
+    image: '/images/products/dessert-jar.jpg',
     popular: true,
     source: 'catalog',
   },
@@ -298,7 +300,7 @@ export const products: Product[] = [
     name: { id: 'Strawberry Korean Roll', en: 'Strawberry Korean Roll' },
     desc: { id: 'Bolu gulung Korea lembut isi stroberi.', en: 'Soft Korean roll cake with strawberry.' },
     priceIDR: 100000,
-    image: '/images/products/roll-cake.jpg',
+    image: '/images/products/fruit-tarts.jpg',
     popular: true,
     source: 'catalog',
   },
@@ -308,7 +310,7 @@ export const products: Product[] = [
     name: { id: 'Chocolate Korean Roll', en: 'Chocolate Korean Roll' },
     desc: { id: 'Bolu gulung Korea rasa cokelat.', en: 'Korean roll cake with chocolate.' },
     priceIDR: 100000,
-    image: '/images/products/roll-cake.jpg',
+    image: '/images/products/choc-cupcake.jpg',
     source: 'catalog',
   },
   {
@@ -317,7 +319,7 @@ export const products: Product[] = [
     name: { id: 'Cheese Korean Roll', en: 'Cheese Korean Roll' },
     desc: { id: 'Bolu gulung Korea rasa keju.', en: 'Korean roll cake with cheese.' },
     priceIDR: 100000,
-    image: '/images/products/roll-cake.jpg',
+    image: '/images/products/muffins.jpg',
     source: 'catalog',
   },
   {
@@ -326,7 +328,7 @@ export const products: Product[] = [
     name: { id: 'Klepon Roll Cake', en: 'Klepon Roll Cake' },
     desc: { id: 'Bolu gulung rasa klepon: pandan & gula merah.', en: 'Roll cake with klepon flavour: pandan & palm sugar.' },
     priceIDR: 100000,
-    image: '/images/products/roll-cake.jpg',
+    image: '/images/products/pink-cupcake.jpg',
     source: 'catalog',
   },
   {
@@ -335,7 +337,7 @@ export const products: Product[] = [
     name: { id: '2 Roll Cake (bisa dicampur)', en: '2 Roll Cake (can be mixed)' },
     desc: { id: 'Paket dua roll cake — varian bisa dicampur.', en: 'Bundle of two roll cakes — flavours can be mixed.' },
     priceIDR: 200000,
-    image: '/images/products/roll-cake.jpg',
+    image: '/images/products/birthday-cake.jpg',
     source: 'catalog',
   },
 
@@ -401,7 +403,7 @@ export const products: Product[] = [
     name: { id: 'Croissant Nutella', en: 'Nutella Croissant' },
     desc: { id: 'Croissant isi nutella.', en: 'Croissant filled with nutella.' },
     priceIDR: 30000,
-    image: '/images/products/choc-pastry.jpg',
+    image: '/images/products/croissant-bakery.jpg',
     source: 'catalog',
   },
   {
@@ -410,7 +412,7 @@ export const products: Product[] = [
     name: { id: 'Croissant Cheese', en: 'Cheese Croissant' },
     desc: { id: 'Croissant isi keju gurih.', en: 'Croissant with savoury cheese.' },
     priceIDR: 30000,
-    image: '/images/products/croissant-tray.jpg',
+    image: '/images/products/croissant.jpg',
     source: 'catalog',
   },
   {
@@ -419,7 +421,7 @@ export const products: Product[] = [
     name: { id: 'Ham & Cheese Croissant', en: 'Ham & Cheese Croissant' },
     desc: { id: 'Croissant isi ham dan keju.', en: 'Croissant with ham and cheese.' },
     priceIDR: 30000,
-    image: '/images/products/croissant.jpg',
+    image: '/images/products/croissant-tray.jpg',
     source: 'catalog',
   },
   {
@@ -456,7 +458,7 @@ export const products: Product[] = [
     name: { id: 'Martabak Special Croissant', en: 'Martabak Special Croissant' },
     desc: { id: 'Croissant terinspirasi martabak manis.', en: 'Croissant inspired by sweet martabak.' },
     priceIDR: 30000,
-    image: '/images/products/choc-pastry.jpg',
+    image: '/images/products/bread-rolls.jpg',
     source: 'catalog',
   },
   {
@@ -465,7 +467,7 @@ export const products: Product[] = [
     name: { id: 'Cinnamon Raisin', en: 'Cinnamon Raisin' },
     desc: { id: 'Pastry gulung kayu manis & kismis.', en: 'Cinnamon & raisin swirl pastry.' },
     priceIDR: 30000,
-    image: '/images/products/croissant-tray.jpg',
+    image: '/images/products/dessert-bars.jpg',
     source: 'catalog',
   },
   {
@@ -496,7 +498,7 @@ export const products: Product[] = [
     name: { id: 'Emental Cheese', en: 'Emental Cheese' },
     desc: { id: 'Kue keju emental porsi loaf.', en: 'Emmental cheese loaf treat.' },
     priceIDR: 100000,
-    image: '/images/products/cheese-blocks.jpg',
+    image: '/images/products/muffins.jpg',
     source: 'catalog',
   },
   {
@@ -515,7 +517,7 @@ export const products: Product[] = [
     name: { id: 'Strawberry Crumble', en: 'Strawberry Crumble' },
     desc: { id: 'Crumble manis dengan stroberi.', en: 'Sweet crumble bar with strawberry.' },
     priceIDR: 75000,
-    image: '/images/products/raspberry-cake.jpg',
+    image: '/images/products/redvelvet-cupcake.jpg',
     source: 'catalog',
   },
   {
@@ -542,7 +544,7 @@ export const products: Product[] = [
     name: { id: 'Toblerone Brownies', en: 'Toblerone Brownies' },
     desc: { id: 'Brownies dengan cokelat toblerone.', en: 'Brownies with Toblerone chocolate.' },
     priceIDR: 75000,
-    image: '/images/products/brownie.jpg',
+    image: '/images/products/chocolate-bars.jpg',
     source: 'catalog',
   },
   {
@@ -573,7 +575,7 @@ export const products: Product[] = [
     name: { id: 'Donut Durian', en: 'Durian Donut' },
     desc: { id: 'Satu box donut isi durian.', en: 'A box of durian-filled donuts.' },
     priceIDR: 95000,
-    image: '/images/products/donut.jpg',
+    image: '/images/products/mini-tarts.jpg',
     source: 'catalog',
   },
   {
@@ -591,7 +593,7 @@ export const products: Product[] = [
     name: { id: 'Picnic Roll Beef', en: 'Picnic Roll Beef' },
     desc: { id: 'Pastry gurih isi daging sapi.', en: 'Savoury pastry roll with beef.' },
     priceIDR: 110000,
-    image: '/images/products/savory-pastry.jpg',
+    image: '/images/products/bread-rolls.jpg',
     source: 'catalog',
   },
 
@@ -641,7 +643,7 @@ export const products: Product[] = [
     name: { id: 'Sagu Keju', en: 'Sagu Keju' },
     desc: { id: 'Kue sagu keju yang lumer.', en: 'Melt-in-mouth cheese sagu cookies.' },
     priceIDR: 165000,
-    image: '/images/products/cookies-assorted.jpg',
+    image: '/images/products/macaron-stack.jpg',
     source: 'catalog',
   },
   {
@@ -659,7 +661,7 @@ export const products: Product[] = [
     name: { id: 'Almond Coffee Nut', en: 'Almond Coffee Nut' },
     desc: { id: 'Kue almond dengan sentuhan kopi.', en: 'Almond cookies with a coffee note.' },
     priceIDR: 165000,
-    image: '/images/products/macaron-stack.jpg',
+    image: '/images/products/dessert-bars.jpg',
     source: 'catalog',
   },
   {
@@ -668,7 +670,7 @@ export const products: Product[] = [
     name: { id: 'Red Velvet Cookies', en: 'Red Velvet Cookies' },
     desc: { id: 'Cookies red velvet yang cantik.', en: 'Pretty red velvet cookies.' },
     priceIDR: 165000,
-    image: '/images/products/red-velvet.jpg',
+    image: '/images/products/redvelvet-cupcake.jpg',
     source: 'catalog',
   },
   {
@@ -700,7 +702,7 @@ export const products: Product[] = [
       en: '3 croissants + 1 Roti Maung + 250 ml iced coffee.',
     },
     priceIDR: 125000,
-    image: '/images/products/bakery-case.jpg',
+    image: '/images/products/croissant-bakery.jpg',
     popular: true,
     source: 'catalog',
   },
