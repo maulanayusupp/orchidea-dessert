@@ -25,6 +25,9 @@ const waUrl = computed(() =>
             <UiIcon v-for="n in 5" :key="n" name="star" :size="18" />
           </span>
           <span class="hero__rating-text">{{ t('home.hero.ratingText') }}</span>
+          <span class="hero__halal">
+            <UiIcon name="check" :size="14" /> {{ t('common.halal') }}
+          </span>
         </div>
 
         <div class="hero__actions">
@@ -127,6 +130,20 @@ const waUrl = computed(() =>
   &__rating-text {
     font-size: $fs-sm;
     color: rgba($cream-50, 0.78);
+  }
+
+  &__halal {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0.28em 0.7em;
+    border-radius: var(--radius-pill);
+    border: 1px solid rgba($gold-300, 0.55);
+    background: rgba($gold-400, 0.16);
+    color: $gold-300;
+    font-size: $fs-xs;
+    font-weight: $fw-semibold;
+    letter-spacing: 0.04em;
   }
 
   &__actions {

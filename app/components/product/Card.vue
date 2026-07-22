@@ -1,21 +1,29 @@
 <script setup lang="ts">
 import type { Product } from '~/types/catalog'
-import { formatIDR, priceFrom } from '~/utils/format'
+import { formatIDR, priceFrom, hasSizes } from '~/utils/format'
 import { buildWhatsAppOrderUrl, orderMessage } from '~/utils/whatsapp'
 
 const props = defineProps<{ product: Product }>()
 
 const price = computed(() => priceFrom(props.product))
+const sized = computed(() => hasSizes(props.product))
 
 const { t, locale } = useI18n()
 const localePath = useLocalePath()
 const { name, desc, tt, categoryBySlug } = useCatalog()
+const { add } = useCart()
 
 const category = computed(() => categoryBySlug(props.product.category))
 const detailPath = computed(() => localePath(`/menu/${props.product.slug}`))
 const waUrl = computed(() =>
   buildWhatsAppOrderUrl(orderMessage(name(props.product))[locale.value as 'id' | 'en']),
 )
+
+function addToCart() {
+  const p = props.product
+  if (p.priceIDR === null) return
+  add({ key: p.slug, slug: p.slug, name: name(p), image: p.image, sizeLabel: null, unitPrice: p.priceIDR })
+}
 </script>
 
 <template>
@@ -56,7 +64,27 @@ const waUrl = computed(() =>
           </template>
           <span v-else class="card__po">{{ t('product.preorder') }}</span>
         </div>
+        <NuxtLink
+          v-if="sized"
+          :to="detailPath"
+          class="card__order"
+          :aria-label="`${t('product.chooseSize')} — ${name(product)}`"
+        >
+          <UiIcon name="arrow" :size="16" />
+          <span>{{ t('product.chooseSize') }}</span>
+        </NuxtLink>
+        <button
+          v-else-if="price !== null"
+          type="button"
+          class="card__order"
+          :aria-label="`${t('cart.add')} — ${name(product)}`"
+          @click="addToCart"
+        >
+          <UiIcon name="bag" :size="16" />
+          <span>{{ t('cart.add') }}</span>
+        </button>
         <a
+          v-else
           :href="waUrl"
           target="_blank"
           rel="noopener noreferrer"
@@ -64,7 +92,7 @@ const waUrl = computed(() =>
           :aria-label="`${t('cta.order')} — ${name(product)}`"
         >
           <UiIcon name="whatsapp" :size="16" />
-          <span>{{ t('cta.order') }}</span>
+          <span>{{ t('cta.orderShort') }}</span>
         </a>
       </div>
     </div>
@@ -219,6 +247,9 @@ const waUrl = computed(() =>
     align-items: center;
     gap: 6px;
     padding: 0.55em 0.9em;
+    border: 0;
+    cursor: pointer;
+    font-family: inherit;
     border-radius: var(--radius-pill);
     background: var(--c-green-deep);
     color: $cream-50;

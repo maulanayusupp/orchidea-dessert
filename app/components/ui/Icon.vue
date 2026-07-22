@@ -26,6 +26,8 @@ const paths: Record<string, string> = {
   sparkle: '<path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3Z" fill="currentColor"/>',
   check: '<path d="M5 12.5l4.5 4.5L19 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>',
   heart: '<path d="M12 20S3.5 14.5 3.5 8.9A4.4 4.4 0 0112 6a4.4 4.4 0 018.5 2.9C20.5 14.5 12 20 12 20Z" fill="currentColor"/>',
+  bag: '<path d="M6 8h12l-1 12H7L6 8Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 8V6.5a3 3 0 016 0V8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>',
+  trash: '<path d="M5 7h14M10 7V5h4v2M6 7l1 13h10l1-13" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>',
 }
 
 const inner = computed(() => paths[props.name] ?? '')

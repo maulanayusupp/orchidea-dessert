@@ -2,6 +2,9 @@
 // Vite 8's builtin JSON plugin currently fails on @nuxtjs/i18n JSON imports.
 // Edit both id.ts and en.ts together — ID is the source of truth.
 export default {
+  "common": {
+    "halal": "100% Halal"
+  },
   "nav": {
     "primary": "Navigasi utama",
     "toggle": "Buka menu",
@@ -28,6 +31,7 @@ export default {
     "signature": "Signature",
     "from": "Mulai",
     "preorder": "Pre-order (H-1)",
+    "chooseSize": "Pilih ukuran",
     "priceNote": "Harga dapat berubah. Konfirmasi ketersediaan & harga terbaru via WhatsApp.",
     "detail": {
       "back": "Kembali ke menu",
@@ -155,6 +159,36 @@ export default {
       "messagePlaceholder": "Tulis kebutuhan pesananmu (tanggal, jumlah, dll.)",
       "submit": "Kirim via WhatsApp"
     }
+  },
+  "cart": {
+    "title": "Keranjang",
+    "close": "Tutup keranjang",
+    "empty": "Keranjang masih kosong.",
+    "add": "Tambah",
+    "remove": "Hapus",
+    "increase": "Tambah jumlah",
+    "decrease": "Kurangi jumlah",
+    "subtotal": "Subtotal",
+    "note": "Pembayaran & konfirmasi final dilakukan via WhatsApp.",
+    "checkout": "Lanjut ke checkout"
+  },
+  "checkout": {
+    "eyebrow": "Checkout",
+    "title": "Selesaikan pesanan",
+    "intro": "Tinjau pesananmu, lengkapi detail, lalu kirim ke kami via WhatsApp untuk konfirmasi.",
+    "summary": "Ringkasan pesanan",
+    "details": "Detail pemesan",
+    "phone": "Nomor telepon / WhatsApp",
+    "fulfillment": "Metode pengambilan",
+    "pickup": "Ambil sendiri",
+    "delivery": "Kirim",
+    "addressPlaceholder": "Alamat lengkap pengiriman",
+    "date": "Tanggal dibutuhkan",
+    "dateHint": "Minimal H-1 (satu hari sebelumnya).",
+    "notesPlaceholder": "Catatan tambahan (ucapan, dll.)",
+    "place": "Kirim pesanan via WhatsApp",
+    "waNote": "Kami akan membalas untuk konfirmasi ketersediaan, total, dan pembayaran.",
+    "totalNote": "Belum termasuk ongkir (jika dikirim). Total final dikonfirmasi via WhatsApp."
   },
   "footer": {
     "tagline": "Pastry, bakery & viennoiserie artisan oleh Chef R. Gilang Wardhana. Dibuat dengan passion di Bandung.",

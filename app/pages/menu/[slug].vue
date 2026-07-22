@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { formatIDR, priceFrom } from '~/utils/format'
+import { formatIDR } from '~/utils/format'
 import { buildWhatsAppOrderUrl, orderMessage } from '~/utils/whatsapp'
 import type { ProductSize } from '~/types/catalog'
 
@@ -7,6 +7,7 @@ const route = useRoute()
 const { t, locale } = useI18n()
 
 const sizeLabel = (s: ProductSize) => `${t(`product.size.${s.shape}`)} ${s.dim}`
+const { add } = useCart()
 const localePath = useLocalePath()
 const { products, productBySlug, categoryBySlug, name, desc, tt } = useCatalog()
 
@@ -45,6 +46,32 @@ const highlights = computed(() => [
 // Switching locale navigates to a prefixed route (full remount), so a one-time
 // call reflects the active locale correctly.
 const current = product.value!
+
+// Buying state: default to the first size (if any) and quantity 1.
+const selectedSize = ref<ProductSize | null>(current.sizes?.[0] ?? null)
+const qty = ref(1)
+const displayPrice = computed(() =>
+  selectedSize.value ? selectedSize.value.priceIDR : current.priceIDR,
+)
+const canBuy = computed(() => displayPrice.value !== null)
+
+function addToCart() {
+  const unit = displayPrice.value
+  if (unit === null) return
+  const s = selectedSize.value
+  add(
+    {
+      key: current.slug + (s ? `:${s.shape}-${s.dim}` : ''),
+      slug: current.slug,
+      name: name(current),
+      image: current.image,
+      sizeLabel: s ? sizeLabel(s) : null,
+      unitPrice: unit,
+    },
+    qty.value,
+  )
+}
+
 useSeoMetaTags({
   title: name(current),
   description: desc(current),
@@ -98,28 +125,44 @@ useProductJsonLd(product)
           </div>
 
           <div class="pd__price">
-            <template v-if="priceFrom(product) !== null">
-              <span v-if="product.sizes?.length" class="pd__price-from">{{ t('product.from') }}</span>
-              <span class="pd__price-amount">{{ formatIDR(priceFrom(product)!) }}</span>
-            </template>
+            <span v-if="displayPrice !== null" class="pd__price-amount">{{ formatIDR(displayPrice) }}</span>
             <span v-else class="pd__price-po">{{ t('product.preorder') }}</span>
           </div>
 
           <div v-if="product.sizes?.length" class="pd__sizes">
             <span class="pd__sizes-label">{{ t('product.detail.sizes') }}</span>
-            <ul role="list">
-              <li v-for="(s, i) in product.sizes" :key="i">
-                <span class="pd__sizes-name">{{ sizeLabel(s) }}</span>
-                <span class="pd__sizes-price">
-                  {{ s.priceIDR !== null ? formatIDR(s.priceIDR) : '—' }}
-                </span>
-              </li>
-            </ul>
+            <div class="pd__sizes-opts" role="radiogroup" :aria-label="t('product.detail.sizes')">
+              <button
+                v-for="(s, i) in product.sizes"
+                :key="i"
+                type="button"
+                class="size-opt"
+                :class="{ 'is-active': selectedSize === s }"
+                role="radio"
+                :aria-checked="selectedSize === s"
+                @click="selectedSize = s"
+              >
+                <span class="size-opt__name">{{ sizeLabel(s) }}</span>
+                <span class="size-opt__price">{{ formatIDR(s.priceIDR!) }}</span>
+              </button>
+            </div>
+          </div>
+
+          <div v-if="canBuy" class="pd__buy">
+            <div class="qty">
+              <button type="button" class="qty__btn" :aria-label="t('cart.decrease')" @click="qty = Math.max(1, qty - 1)">−</button>
+              <span class="qty__val">{{ qty }}</span>
+              <button type="button" class="qty__btn" :aria-label="t('cart.increase')" @click="qty++">+</button>
+            </div>
+            <UiButton variant="primary" size="lg" class="pd__add" @click="addToCart">
+              <template #icon-left><UiIcon name="bag" :size="19" /></template>
+              {{ t('cart.add') }}
+            </UiButton>
           </div>
 
           <div class="pd__actions">
-            <UiButton :href="waUrl" external variant="primary" size="lg">
-              <template #icon-left><UiIcon name="whatsapp" :size="19" /></template>
+            <UiButton :href="waUrl" external variant="ghost" size="lg">
+              <template #icon-left><UiIcon name="whatsapp" :size="18" /></template>
               {{ t('product.detail.orderCta') }}
             </UiButton>
             <UiButton :to="localePath('/menu')" variant="ghost" size="lg">
@@ -290,30 +333,68 @@ useProductJsonLd(product)
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--c-text-muted);
-    margin-bottom: $space-2;
+    margin-bottom: $space-3;
   }
 
-  ul {
+  &-opts {
     display: flex;
-    flex-direction: column;
-    gap: 2px;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    max-width: 340px;
+    flex-wrap: wrap;
+    gap: $space-2;
+  }
+}
+
+.size-opt {
+  @include button-reset;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 0.6em 1em;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--c-border);
+  background: var(--c-surface);
+  transition: border-color $dur-fast var(--ease-out), background-color $dur-fast var(--ease-out);
+
+  &__name { font-size: $fs-sm; color: var(--c-ink-soft); }
+  &__price { font-family: $font-display; font-weight: $fw-semibold; color: var(--c-ink); }
+
+  &:hover { border-color: var(--c-gold); }
+  &.is-active {
+    border-color: var(--c-gold);
+    background: rgba($gold-400, 0.12);
+    .size-opt__name { color: var(--c-gold-deep); }
+  }
+}
+
+.pd__buy {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  margin-top: fluid(20, 28);
+  flex-wrap: wrap;
+}
+
+.pd__add { flex: 1; min-width: 200px; }
+
+.qty {
+  display: inline-flex;
+  align-items: center;
+  border: 1.5px solid var(--c-border);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+
+  &__btn {
+    @include button-reset;
+    width: 2.4em;
+    height: 2.6em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: $fs-lg;
+    color: var(--c-ink);
+    &:hover { background: rgba($gold-400, 0.14); color: var(--c-gold-deep); }
   }
 
-  li {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: $space-4;
-    padding: 0.5em 0;
-    border-bottom: 1px dashed var(--c-border);
-  }
-
-  &-name { color: var(--c-ink-soft); }
-  &-price { font-weight: $fw-semibold; color: var(--c-ink); font-family: $font-display; font-size: 1.1em; }
+  &__val { min-width: 2em; text-align: center; font-weight: $fw-medium; }
 }
 
 .pd__actions {

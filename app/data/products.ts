@@ -4,14 +4,13 @@ import type { Product, ProductSize } from '~/types/catalog'
  * FULL MENU — transcribed from Orchidea Dessert's official "Catalog Orchidea
  * 2026" (source of truth for items & prices; `source: 'catalog'`).
  *
- * Sized cakes list only the sizes the catalog actually offers (a "-" in the
- * catalog means that size is omitted here). The card shows the lowest available
- * price ("from"); the detail page lists every size. Single-price items use
- * `priceIDR`. Photos are free-licence stand-ins matched by type until the owner
- * supplies real photography.
+ * Sized cakes list only the sizes the catalog actually offers; the card shows
+ * the lowest available price ("from"), the detail page lists every size.
+ * Single-price items use `priceIDR`. Photos are free-licence (Unsplash)
+ * stand-ins matched by type — each distinct product has its own image; only
+ * flavour-variants of the same item reuse one. Replace with real photos later.
  */
 
-// Standard cake sizes when all three are available.
 const sizes3 = (sq1: number, sq2: number, rnd: number): ProductSize[] => [
   { shape: 'square', dim: '20×10 cm', priceIDR: sq1 },
   { shape: 'square', dim: '20×20 cm', priceIDR: sq2 },
@@ -52,7 +51,7 @@ export const products: Product[] = [
     desc: { id: 'Kue lembut bertabur keju ala kaastengels.', en: 'Soft cake topped with kaastengels-style cheese.' },
     priceIDR: null,
     sizes: sizes3(275000, 475000, 450000),
-    image: '/images/products/kaastengels.jpg',
+    image: '/images/products/mini-cakes.jpg',
     source: 'catalog',
   },
   {
@@ -79,7 +78,7 @@ export const products: Product[] = [
       { shape: 'square', dim: '20×20 cm', priceIDR: 375000 },
       { shape: 'round', dim: '20 cm', priceIDR: 350000 },
     ],
-    image: '/images/products/cheesecake.jpg',
+    image: '/images/products/berry-cake.jpg',
     source: 'catalog',
   },
   {
@@ -92,7 +91,7 @@ export const products: Product[] = [
       { shape: 'foilSquare', dim: '20×30 cm', priceIDR: 550000 },
       { shape: 'foilRound', dim: '22 cm', priceIDR: 375000 },
     ],
-    image: '/images/products/chocolate-cake.jpg',
+    image: '/images/products/dessert-jar.jpg',
     source: 'catalog',
   },
   {
@@ -102,7 +101,7 @@ export const products: Product[] = [
     desc: { id: 'Tiga lapis cokelat untuk pencinta cokelat.', en: 'Three layers of chocolate for chocolate lovers.' },
     priceIDR: null,
     sizes: sizes3(250000, 375000, 350000),
-    image: '/images/products/chocolate-cake.jpg',
+    image: '/images/products/choc-drip-cake.jpg',
     source: 'catalog',
   },
   {
@@ -122,7 +121,7 @@ export const products: Product[] = [
     desc: { id: 'Perpaduan lembut krim dan stroberi segar.', en: 'A gentle symphony of cream and fresh strawberries.' },
     priceIDR: null,
     sizes: sizes3(275000, 450000, 435000),
-    image: '/images/products/cheesecake.jpg',
+    image: '/images/products/raspberry-cake.jpg',
     signature: true,
     source: 'catalog',
   },
@@ -133,7 +132,7 @@ export const products: Product[] = [
     desc: { id: 'Pisang, kacang, dan keju dalam satu kue.', en: 'Banana, peanut and cheese in one cake.' },
     priceIDR: null,
     sizes: sizes3(175000, 325000, 300000),
-    image: '/images/products/kaastengels.jpg',
+    image: '/images/products/pancakes.jpg',
     source: 'catalog',
   },
   {
@@ -164,7 +163,7 @@ export const products: Product[] = [
     desc: { id: 'Basque cheesecake dengan blueberry.', en: 'Basque burnt cheesecake with blueberry.' },
     priceIDR: null,
     sizes: sizes3(250000, 375000, 350000),
-    image: '/images/products/cheesecake.jpg',
+    image: '/images/products/berry-cake.jpg',
     source: 'catalog',
   },
   {
@@ -174,7 +173,7 @@ export const products: Product[] = [
     desc: { id: 'Basque cheesecake dengan cokelat.', en: 'Basque burnt cheesecake with chocolate.' },
     priceIDR: null,
     sizes: sizes3(250000, 375000, 350000),
-    image: '/images/products/cheesecake.jpg',
+    image: '/images/products/chocolates-box.jpg',
     source: 'catalog',
   },
   {
@@ -195,7 +194,7 @@ export const products: Product[] = [
     desc: { id: 'Kue bertema klepon: pandan & gula merah.', en: 'Klepon-inspired cake: pandan & palm sugar.' },
     priceIDR: null,
     sizes: round('20 cm', 350000),
-    image: '/images/products/matcha-cake.jpg',
+    image: '/images/products/mint-cupcake.jpg',
     source: 'catalog',
   },
   {
@@ -205,7 +204,7 @@ export const products: Product[] = [
     desc: { id: 'Pandan lembut dengan custard dan mangga.', en: 'Soft pandan with custard and mango.' },
     priceIDR: null,
     sizes: round('20 cm', 350000),
-    image: '/images/products/matcha-cake.jpg',
+    image: '/images/products/cupcakes-colorful.jpg',
     source: 'catalog',
   },
   {
@@ -215,7 +214,7 @@ export const products: Product[] = [
     desc: { id: 'Kue keju emental yang gurih & lembut.', en: 'Savoury-sweet emmental cheese cake.' },
     priceIDR: null,
     sizes: round('20 cm', 325000),
-    image: '/images/products/kaastengels.jpg',
+    image: '/images/products/cheese-blocks.jpg',
     source: 'catalog',
   },
   {
@@ -235,7 +234,7 @@ export const products: Product[] = [
     desc: { id: 'Velvet ubi ungu yang lembut & manis.', en: 'Soft, sweet purple-yam velvet cake.' },
     priceIDR: null,
     sizes: sizes3(250000, 375000, 350000),
-    image: '/images/products/birthday-cake.jpg',
+    image: '/images/products/purple-popsicle.jpg',
     source: 'catalog',
   },
 
@@ -257,7 +256,7 @@ export const products: Product[] = [
     desc: { id: 'Crepe berlapis dengan rasa thai tea.', en: 'Layered crepes with thai tea flavour.' },
     priceIDR: null,
     sizes: round('20 cm', 350000),
-    image: '/images/products/mille-crepes.jpg',
+    image: '/images/products/crepe-orange.jpg',
     source: 'catalog',
   },
   {
@@ -267,7 +266,7 @@ export const products: Product[] = [
     desc: { id: 'Crepe berlapis rasa tiramisu.', en: 'Layered crepes with tiramisu flavour.' },
     priceIDR: null,
     sizes: round('20 cm', 350000),
-    image: '/images/products/mille-crepes.jpg',
+    image: '/images/products/tiramisu-slice.jpg',
     source: 'catalog',
   },
   {
@@ -277,7 +276,7 @@ export const products: Product[] = [
     desc: { id: 'Crepe berlapis vanilla yang lembut.', en: 'Soft layered vanilla crepes.' },
     priceIDR: null,
     sizes: round('20 cm', 350000),
-    image: '/images/products/mille-crepes.jpg',
+    image: '/images/products/crepe-cream.jpg',
     source: 'catalog',
   },
   {
@@ -347,7 +346,7 @@ export const products: Product[] = [
     name: { id: 'Butter Croissant', en: 'Butter Croissant' },
     desc: { id: 'Croissant mentega berlapis renyah.', en: 'Flaky, buttery laminated croissant.' },
     priceIDR: 18000,
-    image: '/images/products/croissant.jpg',
+    image: '/images/products/croissant-single.jpg',
     popular: true,
     source: 'catalog',
   },
@@ -357,7 +356,7 @@ export const products: Product[] = [
     name: { id: 'Croissant Chocomaltine', en: 'Chocomaltine Croissant' },
     desc: { id: 'Croissant isi chocomaltine renyah.', en: 'Croissant filled with crunchy chocomaltine.' },
     priceIDR: 30000,
-    image: '/images/products/cromboloni.jpg',
+    image: '/images/products/choc-pastry.jpg',
     source: 'catalog',
   },
   {
@@ -366,7 +365,7 @@ export const products: Product[] = [
     name: { id: 'Banana Chocolate', en: 'Banana Chocolate Croissant' },
     desc: { id: 'Croissant isi pisang & cokelat.', en: 'Croissant with banana & chocolate.' },
     priceIDR: 30000,
-    image: '/images/products/croissant.jpg',
+    image: '/images/products/croissant-tray.jpg',
     source: 'catalog',
   },
   {
@@ -375,7 +374,7 @@ export const products: Product[] = [
     name: { id: 'Pain au Chocolat', en: 'Pain au Chocolat' },
     desc: { id: 'Pastry berlapis dengan batang cokelat.', en: 'Laminated pastry with chocolate batons.' },
     priceIDR: 30000,
-    image: '/images/products/croissant.jpg',
+    image: '/images/products/cromboloni.jpg',
     source: 'catalog',
   },
   {
@@ -393,7 +392,7 @@ export const products: Product[] = [
     name: { id: 'Croissant Almond', en: 'Almond Croissant' },
     desc: { id: 'Croissant klasik dengan almond panggang.', en: 'Classic croissant with toasted almonds.' },
     priceIDR: 30000,
-    image: '/images/products/croissant.jpg',
+    image: '/images/products/bakery-case.jpg',
     source: 'catalog',
   },
   {
@@ -402,7 +401,7 @@ export const products: Product[] = [
     name: { id: 'Croissant Nutella', en: 'Nutella Croissant' },
     desc: { id: 'Croissant isi nutella.', en: 'Croissant filled with nutella.' },
     priceIDR: 30000,
-    image: '/images/products/croissant.jpg',
+    image: '/images/products/choc-pastry.jpg',
     source: 'catalog',
   },
   {
@@ -411,7 +410,7 @@ export const products: Product[] = [
     name: { id: 'Croissant Cheese', en: 'Cheese Croissant' },
     desc: { id: 'Croissant isi keju gurih.', en: 'Croissant with savoury cheese.' },
     priceIDR: 30000,
-    image: '/images/products/croissant.jpg',
+    image: '/images/products/croissant-tray.jpg',
     source: 'catalog',
   },
   {
@@ -429,7 +428,7 @@ export const products: Product[] = [
     name: { id: 'Cranberry Cheese Croissant', en: 'Cranberry Cheese Croissant' },
     desc: { id: 'Croissant isi cranberry & keju.', en: 'Croissant with cranberry & cheese.' },
     priceIDR: 30000,
-    image: '/images/products/croissant.jpg',
+    image: '/images/products/croissant-single.jpg',
     source: 'catalog',
   },
   {
@@ -438,7 +437,7 @@ export const products: Product[] = [
     name: { id: 'Salted Egg Yolk Croissant', en: 'Salted Egg Yolk Croissant' },
     desc: { id: 'Croissant isi telur asin yang gurih.', en: 'Croissant with rich salted egg yolk.' },
     priceIDR: 30000,
-    image: '/images/products/croissant.jpg',
+    image: '/images/products/bakery-case.jpg',
     popular: true,
     source: 'catalog',
   },
@@ -457,7 +456,7 @@ export const products: Product[] = [
     name: { id: 'Martabak Special Croissant', en: 'Martabak Special Croissant' },
     desc: { id: 'Croissant terinspirasi martabak manis.', en: 'Croissant inspired by sweet martabak.' },
     priceIDR: 30000,
-    image: '/images/products/cromboloni.jpg',
+    image: '/images/products/choc-pastry.jpg',
     source: 'catalog',
   },
   {
@@ -466,7 +465,7 @@ export const products: Product[] = [
     name: { id: 'Cinnamon Raisin', en: 'Cinnamon Raisin' },
     desc: { id: 'Pastry gulung kayu manis & kismis.', en: 'Cinnamon & raisin swirl pastry.' },
     priceIDR: 30000,
-    image: '/images/products/cromboloni.jpg',
+    image: '/images/products/croissant-tray.jpg',
     source: 'catalog',
   },
   {
@@ -485,7 +484,7 @@ export const products: Product[] = [
     name: { id: 'Roti Maung Chocolate Cheese', en: 'Roti Maung Chocolate Cheese' },
     desc: { id: 'Roti maung isi cokelat & keju.', en: 'Roti Maung with chocolate & cheese.' },
     priceIDR: 28000,
-    image: '/images/products/roti-maung.jpg',
+    image: '/images/products/breads.jpg',
     popular: true,
     source: 'catalog',
   },
@@ -497,7 +496,7 @@ export const products: Product[] = [
     name: { id: 'Emental Cheese', en: 'Emental Cheese' },
     desc: { id: 'Kue keju emental porsi loaf.', en: 'Emmental cheese loaf treat.' },
     priceIDR: 100000,
-    image: '/images/products/kaastengels.jpg',
+    image: '/images/products/cheese-blocks.jpg',
     source: 'catalog',
   },
   {
@@ -516,7 +515,7 @@ export const products: Product[] = [
     name: { id: 'Strawberry Crumble', en: 'Strawberry Crumble' },
     desc: { id: 'Crumble manis dengan stroberi.', en: 'Sweet crumble bar with strawberry.' },
     priceIDR: 75000,
-    image: '/images/products/cheesecake.jpg',
+    image: '/images/products/raspberry-cake.jpg',
     source: 'catalog',
   },
   {
@@ -525,7 +524,7 @@ export const products: Product[] = [
     name: { id: 'Oreo Brownies', en: 'Oreo Brownies' },
     desc: { id: 'Brownies dengan potongan oreo.', en: 'Brownies loaded with oreo.' },
     priceIDR: 75000,
-    image: '/images/products/brownie.jpg',
+    image: '/images/products/choc-cupcake.jpg',
     source: 'catalog',
   },
   {
@@ -534,7 +533,7 @@ export const products: Product[] = [
     name: { id: 'Banana Peanut Cheese', en: 'Banana Peanut Cheese' },
     desc: { id: 'Bar pisang, kacang, dan keju.', en: 'Banana, peanut and cheese bar.' },
     priceIDR: 100000,
-    image: '/images/products/brownie.jpg',
+    image: '/images/products/pancakes.jpg',
     source: 'catalog',
   },
   {
@@ -552,7 +551,7 @@ export const products: Product[] = [
     name: { id: 'Brownie Burnt Cheese Cake', en: 'Brownie Burnt Cheesecake' },
     desc: { id: 'Perpaduan brownie & basque cheesecake.', en: 'Brownie meets basque burnt cheesecake.' },
     priceIDR: 250000,
-    image: '/images/products/cheesecake.jpg',
+    image: '/images/products/dessert-jar.jpg',
     signature: true,
     source: 'catalog',
   },
@@ -660,7 +659,7 @@ export const products: Product[] = [
     name: { id: 'Almond Coffee Nut', en: 'Almond Coffee Nut' },
     desc: { id: 'Kue almond dengan sentuhan kopi.', en: 'Almond cookies with a coffee note.' },
     priceIDR: 165000,
-    image: '/images/products/cookies-assorted.jpg',
+    image: '/images/products/macaron-stack.jpg',
     source: 'catalog',
   },
   {
@@ -687,7 +686,7 @@ export const products: Product[] = [
     name: { id: 'Choco Bow', en: 'Choco Bow' },
     desc: { id: 'Cookies cokelat bentuk pita.', en: 'Chocolate cookies piped like ribbons.' },
     priceIDR: 165000,
-    image: '/images/products/cookies-assorted.jpg',
+    image: '/images/products/chocolates-box.jpg',
     source: 'catalog',
   },
 
@@ -701,7 +700,7 @@ export const products: Product[] = [
       en: '3 croissants + 1 Roti Maung + 250 ml iced coffee.',
     },
     priceIDR: 125000,
-    image: '/images/products/croissant.jpg',
+    image: '/images/products/bakery-case.jpg',
     popular: true,
     source: 'catalog',
   },

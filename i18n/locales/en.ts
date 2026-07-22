@@ -2,6 +2,9 @@
 // Vite 8's builtin JSON plugin currently fails on @nuxtjs/i18n JSON imports.
 // Edit both id.ts and en.ts together — ID is the source of truth.
 export default {
+  "common": {
+    "halal": "100% Halal"
+  },
   "nav": {
     "primary": "Primary navigation",
     "toggle": "Open menu",
@@ -28,6 +31,7 @@ export default {
     "signature": "Signature",
     "from": "From",
     "preorder": "Pre-order (H-1)",
+    "chooseSize": "Choose size",
     "priceNote": "Prices may change. Please confirm availability and the latest price on WhatsApp.",
     "detail": {
       "back": "Back to menu",
@@ -155,6 +159,36 @@ export default {
       "messagePlaceholder": "Tell us your order needs (date, quantity, etc.)",
       "submit": "Send via WhatsApp"
     }
+  },
+  "cart": {
+    "title": "Cart",
+    "close": "Close cart",
+    "empty": "Your cart is empty.",
+    "add": "Add",
+    "remove": "Remove",
+    "increase": "Increase quantity",
+    "decrease": "Decrease quantity",
+    "subtotal": "Subtotal",
+    "note": "Payment & final confirmation happen over WhatsApp.",
+    "checkout": "Proceed to checkout"
+  },
+  "checkout": {
+    "eyebrow": "Checkout",
+    "title": "Complete your order",
+    "intro": "Review your order, fill in your details, then send it to us on WhatsApp to confirm.",
+    "summary": "Order summary",
+    "details": "Your details",
+    "phone": "Phone / WhatsApp number",
+    "fulfillment": "Fulfilment method",
+    "pickup": "Pick up",
+    "delivery": "Delivery",
+    "addressPlaceholder": "Full delivery address",
+    "date": "Date needed",
+    "dateHint": "At least H-1 (one day ahead).",
+    "notesPlaceholder": "Extra notes (message on cake, etc.)",
+    "place": "Send order via WhatsApp",
+    "waNote": "We'll reply to confirm availability, total and payment.",
+    "totalNote": "Delivery fee (if any) not included. Final total is confirmed on WhatsApp."
   },
   "footer": {
     "tagline": "Artisan pastry, bakery & viennoiserie by Chef R. Gilang Wardhana. Made by passion in Bandung.",

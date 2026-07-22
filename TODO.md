@@ -24,11 +24,13 @@ Roadmap of next features and improvements. Keep this updated as work lands
 - [ ] Add real customer testimonials (with permission) — do NOT fabricate.
 - [ ] Product detail pages (`/menu/[slug]`) with gallery, allergens, sizes.
 
-## 🛒 E-commerce (phase 2)
-- [ ] Cart & checkout flow (start client-side; keep WhatsApp order as fallback).
+## 🛒 E-commerce
+- [x] Cart & checkout flow — client-side cart (`useCart` + localStorage), slide-over
+      drawer, `/checkout` with pickup/delivery, H-1 date picker, notes → composes a
+      full itemized WhatsApp order message (fits the business's real order flow).
 - [ ] Payment gateway integration (e.g. Midtrans / Xendit — popular in Indonesia).
-- [ ] Order form with date picker enforcing the H-1 lead time.
-- [ ] Delivery/pickup selection + area-based delivery fee.
+- [ ] Area-based delivery fee + address geocoding.
+- [ ] Persist orders to a backend/DB + order status; admin dashboard.
 - [ ] Product stock / availability flags, promo codes.
 - [ ] Backend/API: migrate `app/data/*` to a CMS or DB behind `useCatalog()`
       (the composable is the single seam — swap the data source there only).

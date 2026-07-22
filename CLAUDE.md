@@ -67,7 +67,8 @@ app/
   types/catalog.ts        # Product / Category / Bilingual types
   data/                   # products.ts, categories.ts (evidence-based catalog)
   utils/                  # format.ts, whatsapp.ts, i18n-helpers.ts (pure)
-  composables/            # useCatalog, useSeoMetaTags, useLocalBusinessJsonLd
+  composables/            # useCatalog, useCart, useSeoMetaTags, JSON-LD helpers
+  plugins/cart.client.ts  # persists the cart to localStorage
   plugins/reveal.client.ts# v-reveal scroll-in directive
   layouts/default.vue     # header + main + footer shell
   components/
@@ -76,10 +77,11 @@ app/
     layout/    Header, Footer
     section/   Heading
     product/   Card
+    cart/      Drawer  (slide-over cart, opened from the header bag icon)
     home/      Hero, Marquee, Categories, Signatures, Popular, Process, Trust, Visit
     legal/     Doc  (renders any legal page from i18n)
   pages/
-    index.vue, about.vue, contact.vue
+    index.vue, about.vue, contact.vue, checkout.vue
     menu/index.vue (filterable list), menu/[slug].vue (product detail)
     legal/privacy.vue, legal/terms.vue, legal/compliance.vue
   assets/scss/

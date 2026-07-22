@@ -16,6 +16,8 @@ const waUrl = computed(() =>
   buildWhatsAppOrderUrl(orderMessage()[locale.value as 'id' | 'en']),
 )
 
+const { count: cartCount, open: openCart } = useCart()
+
 // The transparent (white-text) header only reads well over the dark home hero.
 // Everywhere else the page starts on a light background, so the header must be
 // solid (dark text) from the top. It also turns solid once the hero is scrolled.
@@ -56,6 +58,10 @@ onBeforeUnmount(() => {
 
       <div class="header__actions">
         <LanguageSwitcher class="header__lang" />
+        <button class="header__cart" :aria-label="t('cart.title')" @click="openCart">
+          <UiIcon name="bag" :size="22" />
+          <span v-if="cartCount" class="header__cart-badge">{{ cartCount }}</span>
+        </button>
         <UiButton :href="waUrl" external size="sm" variant="primary" class="header__cta">
           <template #icon-left><UiIcon name="whatsapp" :size="16" /></template>
           {{ t('cta.order') }}
@@ -197,6 +203,37 @@ onBeforeUnmount(() => {
 
   &:not(.is-solid) &__burger {
     color: $cream-50;
+  }
+
+  &__cart {
+    @include button-reset;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    color: var(--c-ink);
+    padding: 4px;
+    transition: color $dur-fast var(--ease-out);
+    &:hover { color: var(--c-gold-deep); }
+  }
+
+  &:not(.is-solid) &__cart {
+    color: $cream-50;
+  }
+
+  &__cart-badge {
+    position: absolute;
+    top: -3px;
+    right: -4px;
+    min-width: 17px;
+    height: 17px;
+    padding: 0 4px;
+    border-radius: var(--radius-pill);
+    background: $berry;
+    color: $cream-50;
+    font-size: 10px;
+    font-weight: $fw-bold;
+    line-height: 17px;
+    text-align: center;
   }
 
   &__scrim {
