@@ -1,0 +1,77 @@
+// Global button system — reused by the <UiButton> component and plain anchors.
+.btn {
+  @include button-reset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2;
+  padding: 0.85em 1.6em;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-weight: $fw-medium;
+  font-size: $fs-base;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  text-align: center;
+  transition: transform $dur-fast var(--ease-out), box-shadow $dur-base var(--ease-out),
+    background-color $dur-base var(--ease-out), color $dur-base var(--ease-out);
+  will-change: transform;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &__icon {
+    display: inline-flex;
+    width: 1.15em;
+    height: 1.15em;
+  }
+}
+
+.btn--primary {
+  background: linear-gradient(135deg, $gold-400, $gold-600);
+  color: $cream-50;
+  box-shadow: $shadow-gold;
+
+  &:hover {
+    box-shadow: 0 20px 46px rgba($gold-700, 0.36);
+  }
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--c-ink);
+  border: 1.5px solid var(--c-border);
+
+  &:hover {
+    border-color: var(--c-gold);
+    background: rgba($gold-400, 0.08);
+  }
+}
+
+.btn--dark {
+  background: var(--c-green-deep);
+  color: $cream-50;
+
+  &:hover {
+    background: $green-700;
+  }
+}
+
+.btn--block {
+  width: 100%;
+}
+
+.btn--lg {
+  padding: 1.05em 2.1em;
+  font-size: $fs-lg;
+}
+
+.btn--sm {
+  padding: 0.6em 1.1em;
+  font-size: $fs-sm;
+}

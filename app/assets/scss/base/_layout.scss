@@ -1,0 +1,59 @@
+// Shared structural utilities (kept small & centralized — components own the rest).
+.container {
+  @include container;
+}
+
+.container--narrow {
+  @include container(var(--container-narrow));
+}
+
+.section {
+  padding-block: var(--section-y);
+}
+
+.section__head {
+  max-width: 640px;
+  margin-bottom: fluid(28, 52);
+
+  &--center {
+    margin-inline: auto;
+    text-align: center;
+  }
+}
+
+.section__title {
+  margin-top: $space-3;
+}
+
+.section__intro {
+  margin-top: $space-4;
+  color: var(--c-text-muted);
+  font-size: $fs-lg;
+}
+
+// Page-enter transition (registered in nuxt.config app.pageTransition).
+.page-enter-active,
+.page-leave-active {
+  transition: opacity $dur-base var(--ease-out), transform $dur-base var(--ease-out);
+}
+
+.page-enter-from {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.page-leave-to {
+  opacity: 0;
+}
+
+// Reveal-on-scroll (toggled by v-reveal directive).
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+
+  &.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}

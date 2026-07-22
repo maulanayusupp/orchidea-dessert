@@ -1,0 +1,22 @@
+// Low-level utility classes (used sparingly — components carry most styling).
+.u-text-center { text-align: center; }
+.u-text-gold { color: var(--c-gold-deep); }
+.u-sr-only { @include visually-hidden; }
+.u-no-scroll { overflow: hidden; }
+
+.u-grid {
+  display: grid;
+  gap: fluid(18, 32);
+}
+
+.u-cols-2 { grid-template-columns: 1fr; @include up('md') { grid-template-columns: repeat(2, 1fr); } }
+.u-cols-3 { grid-template-columns: 1fr; @include up('sm') { grid-template-columns: repeat(2, 1fr); } @include up('lg') { grid-template-columns: repeat(3, 1fr); } }
+.u-cols-4 { grid-template-columns: repeat(2, 1fr); @include up('lg') { grid-template-columns: repeat(4, 1fr); } }
+
+// Gold gradient text (headings accent).
+.u-gold-text {
+  background: linear-gradient(120deg, $gold-600, $gold-300 60%, $gold-500);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}

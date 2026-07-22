@@ -1,0 +1,53 @@
+// CSS custom properties — the runtime theme. SCSS tokens feed these so both
+// worlds stay in sync. Components reference var(--c-*) for anything themeable.
+:root {
+  // Brand
+  --c-gold: #{$gold-500};
+  --c-gold-soft: #{$gold-300};
+  --c-gold-deep: #{$gold-700};
+  --c-green: #{$green-700};
+  --c-green-deep: #{$green-900};
+  --c-sage: #{$green-500};
+  --c-teal: #{$teal-600};
+  --c-berry: #{$berry};
+
+  // Surfaces
+  --c-cream: #{$cream-100};
+  --c-cream-soft: #{$cream-50};
+  --c-cream-deep: #{$cream-200};
+  --c-surface: #{$white};
+  --c-ink: #{$ink-900};
+  --c-ink-soft: #{$ink-700};
+
+  // Semantic
+  --c-bg: #{$cream-50};
+  --c-text: #{$ink-900};
+  --c-text-muted: #{rgba($ink-700, 0.78)};
+  --c-border: #{rgba($gold-700, 0.16)};
+
+  // Layout
+  --container-max: #{$container-max};
+  --container-narrow: #{$container-narrow};
+  --header-height: #{$header-height};
+  --gutter: #{fluid(20, 48)};
+  --section-y: #{fluid(56, 120)};
+
+  // Type
+  --font-display: #{$font-display};
+  --font-body: #{$font-body};
+
+  // Radii & elevation
+  --radius-md: #{$radius-md};
+  --radius-lg: #{$radius-lg};
+  --radius-xl: #{$radius-xl};
+  --radius-pill: #{$radius-pill};
+  --shadow-sm: #{$shadow-sm};
+  --shadow-md: #{$shadow-md};
+  --shadow-lg: #{$shadow-lg};
+
+  // Motion
+  --ease-out: #{$ease-out};
+  --dur-base: #{$dur-base};
+
+  color-scheme: light;
+}
