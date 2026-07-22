@@ -67,10 +67,9 @@ function addToCart() {
         <NuxtLink
           v-if="sized"
           :to="detailPath"
-          class="card__order"
+          class="card__order card__order--ghost"
           :aria-label="`${t('product.chooseSize')} — ${name(product)}`"
         >
-          <UiIcon name="arrow" :size="16" />
           <span>{{ t('product.chooseSize') }}</span>
         </NuxtLink>
         <button
@@ -245,8 +244,11 @@ function addToCart() {
   &__order {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 6px;
-    padding: 0.55em 0.9em;
+    flex: none;
+    white-space: nowrap;
+    padding: 0.5em 0.95em;
     border: 0;
     cursor: pointer;
     font-family: inherit;
@@ -255,11 +257,25 @@ function addToCart() {
     color: $cream-50;
     font-size: $fs-sm;
     font-weight: $fw-medium;
+    line-height: 1.1;
     transition: background-color $dur-fast var(--ease-out), transform $dur-fast var(--ease-out);
 
     &:hover {
       background: $green-700;
       transform: translateY(-2px);
+    }
+
+    // "Choose size" is a lighter, outlined action (leads to the detail page).
+    &--ghost {
+      background: transparent;
+      color: var(--c-green-deep);
+      border: 1.5px solid var(--c-border);
+
+      &:hover {
+        background: rgba($gold-400, 0.1);
+        border-color: var(--c-gold);
+        color: var(--c-gold-deep);
+      }
     }
   }
 }
